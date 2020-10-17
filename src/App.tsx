@@ -1,7 +1,8 @@
 import React from 'react';
 import ThemeContext from './Contexts/Theme';
-import * as themes from './Contexts/Theme/themes';
 import MainPage from './components/MainPage';
+import { ThemeProvider } from '@material-ui/core';
+import { myTheme, myDarkTheme } from './theme/myTheme';
 
 interface IState {
   theme: any;
@@ -14,7 +15,7 @@ class App extends React.Component<any, IState> {
     super(props);
 
     this.state = {
-      theme: themes.light,
+      theme: myTheme,
       toggleTheme: this.toggleTheme,
       isDarkTheme: false
     }
@@ -23,9 +24,9 @@ class App extends React.Component<any, IState> {
   toggleTheme = () => {
     this.setState({
       theme:
-        this.state.theme === themes.dark ?
-          themes.light :
-          themes.dark,
+        this.state.theme === myDarkTheme ?
+          myTheme :
+          myDarkTheme,
       isDarkTheme: !this.state.isDarkTheme
     });
   }

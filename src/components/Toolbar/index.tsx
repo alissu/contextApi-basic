@@ -1,14 +1,11 @@
 import React from 'react';
-import { AppBar, Grid, Toolbar, Typography } from '@material-ui/core';
-import GreenSwitch from '../Switch';
+import { AppBar, Grid, Toolbar, Typography, Switch } from '@material-ui/core';
 import ThemeContext from '../../Contexts/Theme';
 
 const CustonToolbar: React.FC = () => {
   const context = React.useContext(ThemeContext);
 
-  console.log('consumer context', context.theme);
-
-  return (<AppBar position='static'>
+  return (<AppBar position='static' color='secondary'> {/* //TODO: evoluir */}
     <Toolbar>
       <Grid container justify='space-between' alignItems='center'>
         <Grid item>
@@ -24,7 +21,7 @@ const CustonToolbar: React.FC = () => {
               </Typography>
             </Grid>
             <Grid item>
-              <GreenSwitch checked={context.isDarkTheme} onChange={context.toggleTheme} />
+              <Switch checked={context.isDarkTheme} onChange={context.toggleTheme} color='default' />
             </Grid>
           </Grid>
         </Grid>

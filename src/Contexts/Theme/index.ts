@@ -1,8 +1,8 @@
 import React from 'react';
-import * as themes from './themes';
+import { myTheme } from '../../theme/myTheme';
 
 const ThemeContext = React.createContext({
-  theme: themes.dark,
+  theme: myTheme,
   toggleTheme: () => { },
   isDarkTheme: false
 });

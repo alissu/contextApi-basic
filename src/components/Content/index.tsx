@@ -6,19 +6,16 @@ import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 import IProducts from '../../models/Product';
-import ThemeContext from '../../Contexts/Theme';
 
 interface IContentProps {
   products: IProducts[];
 }
 
 const Content: React.FC<IContentProps> = props => {
-  const context = React.useContext(ThemeContext);
-
-  return (<Grid container justify='space-around' alignItems='baseline' style={{ backgroundColor: context.theme.background, color: context.theme.foreground }}>
+  return (<Grid container justify='space-around' alignItems='baseline'>
     {props.products.map(product => {
-      return (<Grid item xs={4} style={{ backgroundColor: context.theme.background, color: context.theme.foreground }}>
-        <Card style={{ backgroundColor: context.theme.background, color: context.theme.foreground }}>
+      return (<Grid item xs={4}>
+        <Card>
           <CardHeader
             avatar={<Avatar> T </Avatar>}
             action={<IconButton>
@@ -26,21 +23,19 @@ const Content: React.FC<IContentProps> = props => {
             </IconButton>}
             title={product.name}
             subheader={product.codigo}
-            style={{ backgroundColor: context.theme.background, color: context.theme.foreground }}
           />
           <CardMedia
             image={product.img}
             title={product.name}
-            style={{ backgroundColor: context.theme.background, color: context.theme.foreground }}
           />
-          <CardContent style={{ backgroundColor: context.theme.background, color: context.theme.foreground }}>
+          <CardContent>
             <Typography variant='body1'>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               Incidunt vero totam, eos reprehenderit sunt corporis officiis voluptate numquam
               eligendi praesentium amet error. Similique magnam aperiam delectus adipisci debitis sunt provident?
             </Typography>
           </CardContent>
-          <CardActions style={{ backgroundColor: context.theme.background, color: context.theme.foreground }}>
+          <CardActions>
             <IconButton onClick={() => alert('produto favoritado')}
               aria-label="add to favorites">
               <FavoriteIcon />
